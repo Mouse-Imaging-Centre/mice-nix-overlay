@@ -1,8 +1,6 @@
 { buildPythonPackage, fetchFromGitHub, stdenv, cmake,
-   minc_tools, mni_autoreg, pyminc, netcdf, zlib, hdf5, bicpl,
+  minc_tools, mni_autoreg, pyminc, netcdf, zlib, hdf5, bicpl,
   numpy, scipy, pytest, m4, autoconf, automake }:
-
-# TODO split this into a c/perl and python package akin to minc2_simple ...
 
 buildPythonPackage rec {
   pname   = "minc-stuffs";

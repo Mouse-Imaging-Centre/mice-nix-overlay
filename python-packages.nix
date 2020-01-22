@@ -8,6 +8,8 @@ in
 
   minc_stuffs = callPackage python-modules/minc-stuffs.nix { };
 
+  pydpiper = callPackage python-modules/pydpiper.nix { };
+
   pyminc = callPackage python-modules/pyminc.nix { };
 
   qbatch = callPackage python-modules/qbatch.nix { };
