@@ -5,4 +5,6 @@ let
 in
 {
   pyminc = callPackage python-modules/pyminc.nix { };
+
+  qbatch = callPackage python-modules/qbatch.nix { };
 }
