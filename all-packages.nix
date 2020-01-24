@@ -8,7 +8,4 @@ rec {
   python36Packages = python36.pkgs;
   python37Packages = super.recurseIntoAttrs python37.pkgs;
   python38Packages = super.recurseIntoAttrs python38.pkgs;
-
-  RMINC = super.callPackage pkgs/RMINC.nix { minc_stuffs = self.python3Packages.minc_stuffs; };
-  MRIcrotome = super.callPackage pkgs/MRIcrotome.nix { };
 }
