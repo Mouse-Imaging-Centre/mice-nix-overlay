@@ -15,6 +15,7 @@ rPackages.buildRPackage rec {
   propagatedBuildInputs = [ zlib hdf5 libminc minc_stuffs ] ++ (with rPackages; [
     tidyverse lme4 batchtools Rcpp
     shiny gridBase data_tree visNetwork rjson DT
+    rgl igraph qvalue lmerTest
   ]);
 
   meta = with lib; {
