@@ -1,5 +1,8 @@
 self: super:
 
+let
+  callPackage = super.callPackage;
+in
 rec {
 
   python36 = super.python36.override { packageOverrides = import ./python-packages.nix; };
@@ -9,6 +12,6 @@ rec {
   python37Packages = super.recurseIntoAttrs python37.pkgs;
   python38Packages = super.recurseIntoAttrs python38.pkgs;
 
-  RMINC = super.callPackage pkgs/RMINC.nix { minc_stuffs = python37Packages.minc_stuffs; };
-  MRIcrotome = super.callPackage pkgs/MRIcrotome.nix { };
+  RMINC = callPackage pkgs/RMINC.nix { minc_stuffs = self.python3Packages.minc_stuffs; };
+  MRIcrotome = callPackage pkgs/MRIcrotome.nix { };
 }
