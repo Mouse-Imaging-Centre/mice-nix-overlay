@@ -22,7 +22,6 @@ buildPythonPackage rec {
     homepage = "https://github.com/pipitone/qbatch";
     description = "Python interface to HPC schedulers";
     maintainers = with maintainers; [ bcdarwin ];
-    platforms = platforms.linux;
     license   = licenses.unlicense;
   };
 }

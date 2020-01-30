@@ -28,7 +28,6 @@ buildPythonPackage rec {
     homepage = "https://github.com/Mouse-Imaging-Centre/pyminc";
     description = "Python interface to the MINC 2 library";
     maintainers = with maintainers; [ bcdarwin ];
-    platforms = platforms.linux;
     license   = licenses.free;
   };
 }

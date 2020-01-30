@@ -28,7 +28,6 @@ buildPythonPackage rec {
     homepage = "https://github.com/Mouse-Imaging-Centre/minc-stuffs";
     description = "Various MINC programs and scripts";
     maintainers = with maintainers; [ bcdarwin ];
-    platforms = platforms.linux;
     license   = licenses.bsd3;
   };
 }

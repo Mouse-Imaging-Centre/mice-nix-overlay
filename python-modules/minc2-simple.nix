@@ -30,7 +30,6 @@ buildPythonPackage {
     homepage = "https://github.com/vfonov/minc2-simple";
     description = "Simple interface to the libminc medical imaging library";
     maintainers = with maintainers; [ bcdarwin ];
-    platforms = platforms.linux;
     license   = licenses.free;
   };
 }
