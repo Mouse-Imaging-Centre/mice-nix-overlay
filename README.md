@@ -7,6 +7,6 @@ A few things are missing, currently mostly visualization software such as Displa
 
 See [the manual](https://nixos.org/nixpkgs/manual/#chap-overlays) for usage instructions.
 
-We may in future publish a recommended package set for medical imaging.
+We may in future publish a recommended package set for medical imaging.  Also, we are currently experimenting with publishing a binary cache at mouse-imaging-centre.cachix.org, but this is not automatically updated yet.
 
 Of course, we welcome contributions including packages and bug reports.
