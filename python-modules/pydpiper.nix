@@ -35,9 +35,9 @@ buildPythonPackage rec {
   doCheck = false;
 
   meta = with lib; {
-    homepage = "https://github.com/Mouse-Imaging-Centre/pyminc";
-    description = "Python interface to the MINC 2 library";
+    homepage = "https://github.com/Mouse-Imaging-Centre/${pname}";
+    description = "Python framework for constructing medical imaging pipelines";
     maintainers = with maintainers; [ bcdarwin ];
-    license   = licenses.free;
+    license   = licenses.bsd3;
   };
 }
