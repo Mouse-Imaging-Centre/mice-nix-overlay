@@ -12,6 +12,16 @@ rec {
   python37Packages = super.recurseIntoAttrs python37.pkgs;
   python38Packages = super.recurseIntoAttrs python38.pkgs;
 
-  RMINC = callPackage pkgs/RMINC.nix { minc_stuffs = self.python3Packages.minc_stuffs; hdf5 = super.pkgs.hdf5_1_8; };
+  hdf5 = super.pkgs.hdf5_1_8;
+
+  netcdf = super.netcdf.override { inherit hdf5; };
+
+  libminc = super.libminc.override { inherit hdf5 netcdf; };
+
+  RMINC = callPackage pkgs/RMINC.nix {
+    inherit hdf5;
+    minc_stuffs = self.python3Packages.minc_stuffs;
+  };
+
   MRIcrotome = callPackage pkgs/MRIcrotome.nix { };
 }
