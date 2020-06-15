@@ -21,6 +21,7 @@ rec {
   RMINC = callPackage pkgs/RMINC.nix {
     inherit hdf5;
     minc_stuffs = self.python3Packages.minc_stuffs;
+    # texLive = super.pkgs.texlive.combine { inherit (super.pkgs.texlive) scheme-small; };
   };
 
   MRIcrotome = callPackage pkgs/MRIcrotome.nix { };

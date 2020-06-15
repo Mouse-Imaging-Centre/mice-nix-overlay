@@ -1,5 +1,5 @@
 { buildPythonPackage, fetchFromGitHub, stdenv, cmake,
-  minc_tools, mni_autoreg, pyminc, netcdf, zlib, hdf5_1_8, bicpl,
+  minc_tools, mni_autoreg, pyminc, netcdf, zlib, hdf5, bicpl,
   numpy, scipy, pytest, m4, autoconf, automake }:
 
 buildPythonPackage rec {
@@ -19,7 +19,7 @@ buildPythonPackage rec {
   postInstall = "make install";
 
   nativeBuildInputs = [ m4 automake autoconf ];
-  buildInputs = [ netcdf hdf5_1_8 bicpl zlib ];
+  buildInputs = [ netcdf hdf5 bicpl zlib ];
   propagatedBuildInputs = [ numpy scipy pyminc ];
 
   doCheck = false;  # no tests?!
