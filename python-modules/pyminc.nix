@@ -1,16 +1,16 @@
-{ lib, buildPythonPackage, fetchFromGitHub,
+{ lib, buildPythonPackage, fetchFromGitHub, python,
   libminc, minc_tools, conglomerate, mni_autoreg,
   cffi, numpy, pytest }:
 
 buildPythonPackage rec {
   pname   = "pyminc";
-  version = "0.52";
+  version = "0.53";
 
   src = fetchFromGitHub {
-    owner = "Mouse-Imaging-Centre";
-    repo  = pname;
-    rev   = "v${version}";
-    sha256 = "1cls58cnjbrlyq2yygz3kyrzkinkkrs8fa83d02sbwg7ymyyqr27";
+    owner  = "Mouse-Imaging-Centre";
+    repo   = pname;
+    rev    = "v${version}";
+    sha256 = "1alqmzlbcq7imz7vyslk395pn3i7z6pyli64fpxcifwps97999kf";
   };
 
   propagatedBuildInputs = [ cffi numpy libminc ];
