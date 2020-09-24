@@ -1,4 +1,4 @@
-{ lib, buildPythonPackage, fetchFromGitHub,
+{ lib, buildPythonPackage, fetchFromGitHub, python,
   libminc, minc_tools, conglomerate, mni_autoreg,
   cffi, numpy, pytestCheckHook }:
 
