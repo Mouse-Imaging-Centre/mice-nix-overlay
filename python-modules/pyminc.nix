@@ -1,28 +1,26 @@
 { lib, buildPythonPackage, fetchFromGitHub,
   libminc, minc_tools, conglomerate, mni_autoreg,
-  cffi, numpy, pytest }:
+  cffi, numpy, pytestCheckHook }:
 
 buildPythonPackage rec {
   pname   = "pyminc";
-  version = "0.52";
+  version = "0.53.2";
 
   src = fetchFromGitHub {
-    owner = "Mouse-Imaging-Centre";
-    repo  = pname;
-    rev   = "v${version}";
-    sha256 = "1cls58cnjbrlyq2yygz3kyrzkinkkrs8fa83d02sbwg7ymyyqr27";
+    owner  = "Mouse-Imaging-Centre";
+    repo   = pname;
+    rev    = "v${version}";
+    sha256 = "0vgnl6fhmqjlqiy3l8wpdvib7b118nh2xljpg09xdcc4jz2shn48";
   };
 
   propagatedBuildInputs = [ cffi numpy libminc ];
-  checkInputs = [ pytest minc_tools conglomerate mni_autoreg ];
+  checkInputs = [ pytestCheckHook minc_tools conglomerate mni_autoreg ];
 
   postPatch = ''
     substituteInPlace pyminc/volumes/libpyminc2.py --replace 'LoadLibrary("' 'LoadLibrary("${libminc}/lib/'
   '';
 
-  checkPhase = ''
-    pytest test/generatorTests.py
-  '';  # some flakiness, e.g. testReadWrite sometimes fails with a 'Hyperslab doesn't define __round__' error
+  pytestFlagsArray = [ "test/generatorTests.py" ];
 
   meta = with lib; {
     homepage = "https://github.com/Mouse-Imaging-Centre/pyminc";
