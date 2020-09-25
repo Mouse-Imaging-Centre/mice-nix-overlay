@@ -19,6 +19,8 @@ rec {
     inherit (python3Packages) buildPythonPackage numpy scipy pyminc pytest;
   };
 
+  INLA = callPackage ./pkgs/INLA.nix { };
+
   RMINC = callPackage ./pkgs/RMINC.nix { };
 
   MRIcrotome = callPackage ./pkgs/MRIcrotome.nix { };
