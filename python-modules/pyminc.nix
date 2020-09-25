@@ -4,13 +4,13 @@
 
 buildPythonPackage rec {
   pname   = "pyminc";
-  version = "0.53.2";
+  version = "0.53.3";
 
   src = fetchFromGitHub {
     owner  = "Mouse-Imaging-Centre";
     repo   = pname;
     rev    = "v${version}";
-    sha256 = "0vgnl6fhmqjlqiy3l8wpdvib7b118nh2xljpg09xdcc4jz2shn48";
+    sha256 = "0wvq51qyzc52mxyrhmqqzyvwgldf513fypipjzh06rf6nfqddggs";
   };
 
   propagatedBuildInputs = [ cffi numpy libminc ];
