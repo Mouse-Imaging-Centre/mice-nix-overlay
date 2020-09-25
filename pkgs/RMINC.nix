@@ -51,7 +51,7 @@ rPackages.buildRPackage rec {
     options(stringsAsFactors = TRUE); \
     testr <- RMINC::runRMINCTestbed(test_q_minc = FALSE); \
     testr <- as.data.frame(testr); \
-    if(any(testr\$error) || any(testr\$warning > 0)) \
+    if(any(testr\$error) || any(testr\$fail > 0) || any(testr\$warning > 0)) \
       stop('Found failing tests') \
     "
     pass=$?
