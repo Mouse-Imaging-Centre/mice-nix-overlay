@@ -1,5 +1,5 @@
 { buildPythonPackage, fetchFromGitHub, stdenv, cmake,
-  hdf5_1_8, libminc, minc2_simple, minc_tools, mni_autoreg,
+  hdf5, libminc, minc2_simple, minc_tools, mni_autoreg,
   cffi, six, numpy, scipy, pytest }:
 
 buildPythonPackage {
@@ -13,7 +13,7 @@ buildPythonPackage {
     sha256 = "sha256:1fmj237mq1vzbn8px4x9ddv9fspzff11na9ird9gaynhp0k9w9s5";
   };
 
-  cmakeFlags = [ "-DBUILD_TESTING=OFF" "-DLIBMINC_DIR=${libminc}/lib/" ];
+  cmakeFlags = [ "-DBUILD_TESTING=OFF" "-DLIBMINC_DIR=${libminc}/lib/cmake" ];
 
   # a bit of a hack to build both C and Python libs:
   preBuild = ''
@@ -23,7 +23,7 @@ buildPythonPackage {
   # note the C tests currently do not run (and would fail due to missing data)
 
   nativeBuildInputs = [ cmake ];
-  propagatedBuildInputs = [ cffi six numpy scipy hdf5_1_8 libminc ];
+  propagatedBuildInputs = [ cffi six numpy scipy hdf5 libminc ];
   checkInputs = [ pytest minc_tools mni_autoreg ];
 
   meta = with stdenv.lib; {
