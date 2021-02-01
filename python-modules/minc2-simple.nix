@@ -1,4 +1,4 @@
-{ buildPythonPackage, fetchFromGitHub, stdenv, cmake,
+{ buildPythonPackage, fetchFromGitHub, lib, cmake,
   hdf5, libminc, minc2_simple, minc_tools, mni_autoreg,
   cffi, six, numpy, scipy, pytest }:
 
@@ -26,7 +26,7 @@ buildPythonPackage {
   propagatedBuildInputs = [ cffi six numpy scipy hdf5 libminc ];
   checkInputs = [ pytest minc_tools mni_autoreg ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     homepage = "https://github.com/vfonov/minc2-simple";
     description = "Simple interface to the libminc medical imaging library";
     maintainers = with maintainers; [ bcdarwin ];
