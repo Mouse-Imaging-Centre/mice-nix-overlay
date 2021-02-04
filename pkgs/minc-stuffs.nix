@@ -1,4 +1,4 @@
-{ buildPythonPackage, fetchFromGitHub, stdenv, cmake,
+{ buildPythonPackage, fetchFromGitHub, lib, cmake,
   minc_tools, mni_autoreg, pyminc, netcdf, zlib, hdf5, bicpl,
   numpy, scipy, pytest, m4, autoconf, automake }:
 
@@ -20,11 +20,11 @@ buildPythonPackage rec {
 
   nativeBuildInputs = [ m4 automake autoconf ];
   buildInputs = [ netcdf hdf5 bicpl zlib ];
-  propagatedBuildInputs = [ numpy scipy pyminc ];
+  propagatedBuildInputs = [ numpy scipy pyminc mni_autoreg minc_tools ];
 
   doCheck = false;  # no tests?!
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     homepage = "https://github.com/Mouse-Imaging-Centre/minc-stuffs";
     description = "Various MINC programs and scripts";
     maintainers = with maintainers; [ bcdarwin ];
