@@ -1,7 +1,7 @@
 self: super:
 
 let
-  callPackage = super.callPackage;
+  callPackage = self.callPackage;
 in
 {
   minc2_simple = callPackage python-modules/minc2-simple.nix { };
