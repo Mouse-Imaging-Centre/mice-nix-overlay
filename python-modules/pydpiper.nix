@@ -4,13 +4,13 @@
 
 buildPythonPackage rec {
   pname   = "pydpiper";
-  version = "2.0.14";
+  version = "2.0.15";
 
   src = fetchFromGitHub {
     owner = "Mouse-Imaging-Centre";
     repo  = pname;
     rev   = "v${version}";
-    sha256 = "1r4s7v3fj36jpn1ixsf8jhh2ww5s0ymk2sjb1vqysbn2k3dk80ad";
+    sha256 = "05nvjqpnpvrgmglp83sk7mfpipx88givfv3s09fznrn80lxv1fir";
   };
 
   propagatedBuildInputs = [
