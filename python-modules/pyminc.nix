@@ -1,26 +1,24 @@
 { lib, buildPythonPackage, fetchFromGitHub, python,
   libminc, minc_tools, conglomerate, mni_autoreg,
-  cffi, numpy, pytestCheckHook }:
+  cffi, numpy, pytestCheckHook, parameterized }:
 
 buildPythonPackage rec {
   pname   = "pyminc";
-  version = "0.53.3";
+  version = "0.54";
 
   src = fetchFromGitHub {
     owner  = "Mouse-Imaging-Centre";
     repo   = pname;
     rev    = "v${version}";
-    sha256 = "0wvq51qyzc52mxyrhmqqzyvwgldf513fypipjzh06rf6nfqddggs";
+    sha256 = "0cjn56cfd2dvgznl1c2m0br4rraxrg6jcknvg5cfxpjprg8hwnra";
   };
 
   propagatedBuildInputs = [ cffi numpy libminc ];
-  checkInputs = [ pytestCheckHook minc_tools conglomerate mni_autoreg ];
+  checkInputs = [ pytestCheckHook parameterized minc_tools conglomerate mni_autoreg ];
 
   postPatch = ''
     substituteInPlace pyminc/volumes/libpyminc2.py --replace 'LoadLibrary("' 'LoadLibrary("${libminc}/lib/'
   '';
-
-  pytestFlagsArray = [ "test/generatorTests.py" ];
 
   meta = with lib; {
     homepage = "https://github.com/Mouse-Imaging-Centre/pyminc";
